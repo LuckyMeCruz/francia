@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Monthsary Celebration • October 9, 2026</title>
+  <meta name="description"
+    content="Preparing for our special day — counting down, cherished photobooth memories, love notes, and our 50 First Dates movie night invitation.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
+
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient Animated Particle Background -->
+  <canvas id="starfieldCanvas"></canvas>
+
+  <!-- Floating Ambient Sound Toggle -->
+  <button id="soundToggleBtn" class="floating-sound-btn" title="Toggle romantic ambient melody"
+    aria-label="Toggle ambient music">
+    <span class="sound-icon-wrapper">
+      <i data-lucide="music" class="music-icon"></i>
+      <span class="sound-bars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+    </span>
+    <span class="sound-label">Music</span>
+  </button>
+
+  <main class="page-wrapper">
+
+    <!-- HERO / COUNTDOWN SECTION -->
+    <section class="hero-section" id="countdownSection">
+      <div class="hero-glow"></div>
+
+      <div class="hero-content">
+        <div class="hero-tag animate-fade-in">
+          <span class="sparkle">✨</span>
+          <span>Preparing For Our Big Day</span>
+          <span class="sparkle">✨</span>
+        </div>
+
+        <h1 class="hero-title animate-fade-up">
+          Counting Down To <br>
+          <span class="gradient-text">Our Monthsary</span>
+        </h1>
+
+        <p class="hero-subtitle animate-fade-up-delay">
+          Every single second with you is a memory I treasure. In just a few moments,
+          it’s October 9, 2026 — another milestone of laughter, warmth, and falling in love all over again.
+        </p>
+
+        <!-- Countdown Timer Card -->
+        <div class="countdown-card glass-panel animate-scale-up" id="countdownTimer">
+          <div class="timer-header">
+            <span class="live-dot"></span>
+            <span>Monthsary Date: <strong>Friday, October 9</strong></span>
+          </div>
+
+          <!-- Timezone Toggle -->
+          <div class="tz-toggle-row">
+            <div class="tz-toggle-wrapper" id="tzToggle">
+              <button class="tz-option active" data-tz="dubai" id="tzDubaiBtn">🇦🇪 Dubai</button>
+              <button class="tz-option" data-tz="ph" id="tzPhBtn">🇵🇭 PH</button>
+              <div class="tz-slider" id="tzSlider"></div>
+            </div>
+            <div class="tz-clock" id="tzClock">
+              <i data-lucide="clock" class="tz-clock-icon"></i>
+              <span id="tzClockTime">--:--:-- PM</span>
+              <span class="tz-clock-label" id="tzClockLabel">GST (UTC+4)</span>
+            </div>
+          </div>
+
+          <div class="timer-grid">
+            <div class="timer-unit">
+              <div class="unit-box">
+                <span id="daysCount" class="unit-number">02</span>
+              </div>
+              <span class="unit-label">Days</span>
+            </div>
+
+            <div class="timer-divider">:</div>
+
+            <div class="timer-unit">
+              <div class="unit-box">
+                <span id="hoursCount" class="unit-number">01</span>
+              </div>
+              <span class="unit-label">Hours</span>
+            </div>
+
+            <div class="timer-divider">:</div>
+
+            <div class="timer-unit">
+              <div class="unit-box">
+                <span id="minutesCount" class="unit-number">05</span>
+              </div>
+              <span class="unit-label">Minutes</span>
+            </div>
+
+            <div class="timer-divider">:</div>
+
+            <div class="timer-unit">
+              <div class="unit-box">
+                <span id="secondsCount" class="unit-number">42</span>
+              </div>
+              <span class="unit-label">Seconds</span>
+            </div>
+          </div>
+
+          <div class="countdown-message" id="countdownStatus">
+            <i data-lucide="sparkles" class="icon-inline"></i>
+            <span>Getting everything ready for our special celebration!</span>
+          </div>
+        </div>
+
+        <div class="hero-action-buttons">
+          <a href="#movieSection" class="btn btn-primary" id="rsvpDirectBtn">
+            <span>RSVP for Movie Date</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#gallerySection" class="btn btn-secondary">
+            <span>Relive Our Moments</span>
+            <i data-lucide="camera"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOATING LOVE MESSAGES & QUOTES SECTION -->
+    <section class="notes-section" id="notesSection">
+      <div class="section-container">
+        <div class="section-badge">
+          <i data-lucide="heart" class="badge-icon"></i>
+          <span>Whispers From The Heart</span>
+        </div>
+
+        <h2 class="section-title">Small Quotes, Endless Love</h2>
+        <p class="section-desc">A few reminders of how deeply cherished and adored you are today and always.</p>
+
+        <!-- 3 Highlight Appreciation Cards -->
+        <div class="appreciation-grid">
+          <div class="appreciation-card glass-panel">
+            <div class="card-icon-bubble">
+              <span>🌟</span>
+            </div>
+            <h3 class="quote-headline">"My Favorite Place"</h3>
+            <p class="quote-body">
+              "No matter how fast the world moves around us, the moment I am with you, everything settles into pure
+              peace and warmth."
+            </p>
+            <div class="quote-footer">
+              <span class="author-tag">Forever Yours</span>
+              <button class="heart-react-btn" aria-label="Heart quote" onclick="triggerMiniHeart(this)">
+                ❤️ <span class="heart-counter">12</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="appreciation-card glass-panel featured-card">
+            <div class="card-icon-bubble">
+              <span>💖</span>
+            </div>
+            <h3 class="quote-headline">"The Warmest Smile"</h3>
+            <p class="quote-body">
+              "Seeing your genuine laughter in our photobooths is the brightest part of my day. You bring a kind of
+              sunshine nobody else has."
+            </p>
+            <div class="quote-footer">
+              <span class="author-tag">My Sunshine</span>
+              <button class="heart-react-btn" aria-label="Heart quote" onclick="triggerMiniHeart(this)">
+                ❤️ <span class="heart-counter">28</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="appreciation-card glass-panel">
+            <div class="card-icon-bubble">
+              <span>🌸</span>
+            </div>
+            <h3 class="quote-headline">"Growing Together"</h3>
+            <p class="quote-body">
+              "Every month with you isn’t just counted in days, but in shared laughter, silly moments, tight hugs, and
+              sweeter tomorrows."
+            </p>
+            <div class="quote-footer">
+              <span class="author-tag">Happy Monthsary</span>
+              <button class="heart-react-btn" aria-label="Heart quote" onclick="triggerMiniHeart(this)">
+                ❤️ <span class="heart-counter">19</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Surprise Love Capsule -->
+        <div class="capsule-container glass-panel">
+          <div class="capsule-icon">💌</div>
+          <div class="capsule-content">
+            <span class="capsule-kicker">Interactive Love Capsule</span>
+            <h4 id="capsuleQuoteText">"Click the button below to unpack another little secret reason why I love you so
+              much..."</h4>
+            <div class="capsule-controls">
+              <button id="nextQuoteBtn" class="btn btn-outline">
+                <i data-lucide="refresh-cw"></i>
+                <span>Open Another Love Note</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION -->
+    <section class="gallery-section" id="gallerySection">
+      <div class="section-container">
+        <div class="section-badge">
+          <i data-lucide="film" class="badge-icon"></i>
+          <span>LensBooth Keepsakes</span>
+        </div>
+
+        <h2 class="section-title">Photobooth Smiles & Warm Hugs</h2>
+        <p class="section-desc">Look at these silly, sweet, and pure memories we captured together. Hover or tap to
+          inspect our photostrips!</p>
+
+        <div class="photostrip-grid">
+
+          <!-- Photostrip 1 -->
+          <div class="photostrip-wrapper" data-tilt>
+            <div class="washi-tape tape-rose"></div>
+            <div class="photostrip-card"
+              onclick="openLightbox('assets/images/photo1.jpg', 'September 25, 2026 • Heart Bloom LensBooth')">
+              <div class="photo-frame">
+                <img src="assets/images/photo1.jpg" alt="Photobooth with cute crochet hearts and goofy poses"
+                  loading="lazy" class="strip-image">
+                <div class="photo-overlay">
+                  <span class="zoom-pill"><i data-lucide="maximize-2"></i> Tap to View</span>
+                </div>
+              </div>
+              <div class="photostrip-caption">
+                <div class="caption-title">Crochet Hearts & Head-scratches</div>
+                <div class="caption-date">Sep 25, 2026 • 05:05 AM</div>
+                <p class="caption-note">"The classic head-holding pose when we're acting goofy at 5 in the morning!"</p>
+                <button class="love-it-btn" onclick="event.stopPropagation(); triggerPhotoReaction(this, 'strip1')">
+                  <span>Send Love</span> ❤️ <span class="react-count">48</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photostrip 2 -->
+          <div class="photostrip-wrapper" data-tilt>
+            <div class="washi-tape tape-candy"></div>
+            <div class="photostrip-card featured-strip"
+              onclick="openLightbox('assets/images/photo2.jpg', 'September 25, 2026 • Candy Cane Stripes & Sweet Laughs')">
+              <div class="ribbon-favorite">Favorite Moments 💕</div>
+              <div class="photo-frame">
+                <img src="assets/images/photo2.jpg" alt="Photobooth with candy cane borders and infectious giggles"
+                  loading="lazy" class="strip-image">
+                <div class="photo-overlay">
+                  <span class="zoom-pill"><i data-lucide="maximize-2"></i> Tap to View</span>
+                </div>
+              </div>
+              <div class="photostrip-caption">
+                <div class="caption-title">Candy Stripes & Unstoppable Giggles</div>
+                <div class="caption-date">Sep 25, 2026 • 05:06 AM</div>
+                <p class="caption-note">"That middle shot of you covering your mouth laughing is officially my favorite
+                  photo forever."</p>
+                <button class="love-it-btn" onclick="event.stopPropagation(); triggerPhotoReaction(this, 'strip2')">
+                  <span>Send Love</span> ❤️ <span class="react-count">92</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photostrip 3 -->
+          <div class="photostrip-wrapper" data-tilt>
+            <div class="washi-tape tape-purple"></div>
+            <div class="photostrip-card"
+              onclick="openLightbox('assets/images/photo3.jpg', 'September 25, 2026 • Purple Checkers & Playful Teasing')">
+              <div class="photo-frame">
+                <img src="assets/images/photo3.jpg" alt="Photobooth with purple checkered borders and sweet grins"
+                  loading="lazy" class="strip-image">
+                <div class="photo-overlay">
+                  <span class="zoom-pill"><i data-lucide="maximize-2"></i> Tap to View</span>
+                </div>
+              </div>
+              <div class="photostrip-caption">
+                <div class="caption-title">Purple Checkers & Heart Eyes</div>
+                <div class="caption-date">Sep 25, 2026 • 05:05 AM</div>
+                <p class="caption-note">"Smiling shyly at the camera, then looking over at each other with pure
+                  adoration."</p>
+                <button class="love-it-btn" onclick="event.stopPropagation(); triggerPhotoReaction(this, 'strip3')">
+                  <span>Send Love</span> ❤️ <span class="react-count">56</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MOVIE DATE INVITATION SECTION (THE GRAND FINALE) -->
+    <section class="movie-section" id="movieSection">
+      <div class="movie-curtain-glow"></div>
+
+      <div class="section-container">
+
+        <div class="invitation-intro">
+          <div class="cinematic-badge">
+            <i data-lucide="clapperboard"></i>
+            <span>Official Date Invitation</span>
+          </div>
+          <h2 class="cinema-heading">Will You Have A Movie Date With Me?</h2>
+          <p class="cinema-sub">
+            Starring you & me in our customized romantic comedy adventure.
+            Here is your exclusive, all-access VIP premiere pass!
+          </p>
+        </div>
+
+        <!-- THE CINEMA TICKET / INVITATION PASS -->
+        <div class="cinema-pass-card glass-panel" id="ticketCard">
+
+          <!-- Poster Showcase Column -->
+          <div class="ticket-poster-col">
+            <div class="poster-container">
+              <div class="poster-ribbon">⭐ EXCLUSIVE PREMIERE ⭐</div>
+              <img src="assets/movie_poster.png" alt="50 First Dates starring our faces on the beach with ukulele"
+                class="movie-poster-img" id="posterImg">
+              <div class="poster-reflection"></div>
+            </div>
+            <div class="poster-meta">
+              <span class="genre-pill">Romantic Comedy</span>
+              <span class="rating-pill">Rated ❤️: 100% Love</span>
+            </div>
+          </div>
+
+          <!-- Pass Details & Date/Time Form Column -->
+          <div class="ticket-details-col">
+
+            <div class="ticket-header-strip">
+              <div class="admit-label">VIP ADMIT ONE (PLUS ME)</div>
+              <div class="ticket-serial">#AICY-20261009-LOVE</div>
+            </div>
+
+            <h3 class="movie-feature-title">50 FIRST DATES</h3>
+            <p class="movie-feature-tagline">
+              "Because falling in love with you isn't just a one-time thing — it's something I want to do every single
+              morning."
+            </p>
+
+            <div class="feature-bullets">
+              <div class="feature-bullet">
+                <i data-lucide="map-pin" class="feature-icon"></i>
+                <div>
+                  <strong>Location:</strong>
+                  <span>Our cozy couch cinema lounge</span>
+                </div>
+              </div>
+              <div class="feature-bullet">
+                <i data-lucide="popcorn" class="feature-icon"></i>
+                <div>
+                  <strong>Snack Package:</strong>
+                  <span>Unlimited popcorn, sweet treats & forehead kisses</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RSVP DATE & TIME PICKER FORM -->
+            <form class="rsvp-form" id="movieRsvpForm" onsubmit="handleRsvpSubmit(event)">
+
+              <div class="form-title-bar">
+                <i data-lucide="calendar-heart"></i>
+                <span>Choose Our Movie Date Schedule</span>
+              </div>
+
+              <div class="form-row">
+                <!-- Date input: defaults to October 9, 2026 -->
+                <div class="form-group">
+                  <label for="movieDateInput">
+                    <span>Date:</span>
+                    <span class="label-hint">(Default: Monthsary Day)</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <i data-lucide="calendar" class="input-icon"></i>
+                    <input type="date" id="movieDateInput" name="movieDate" value="2026-10-09" min="2026-10-06"
+                      max="2026-10-31" required>
+                  </div>
+                  <div class="date-friendly-display" id="dateFriendlyDisplay">
+                    📅 Friday, October 9, 2026 (Monthsary Day)
+                  </div>
+                </div>
+
+                <!-- Time input -->
+                <div class="form-group">
+                  <label for="movieTimeInput">
+                    <span>Time:</span>
+                    <span class="label-hint">(Prime Showtime)</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <i data-lucide="clock" class="input-icon"></i>
+                    <input type="time" id="movieTimeInput" name="movieTime" value="20:00" required>
+                  </div>
+                  <div class="time-friendly-display" id="timeFriendlyDisplay">
+                    ⏰ 08:00 PM (Cozy Night Edition)
+                  </div>
+                </div>
+              </div>
+
+              <!-- Snack & Mood Preference -->
+              <div class="form-group">
+                <label for="snackPreference">
+                  <span>Special Requests / Favorite Snacks:</span>
+                </label>
+                <div class="input-wrapper">
+                  <i data-lucide="sparkles" class="input-icon"></i>
+                  <input type="text" id="snackPreference" name="snackPreference"
+                    placeholder="e.g. Extra caramel popcorn, milk tea & tight cuddles!"
+                    value="Caramel popcorn, hot chocolate & lots of warm cuddles!">
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="rsvp-actions-wrapper">
+                <button type="submit" class="btn btn-rsvp-yes" id="acceptDateBtn">
+                  <span class="btn-icon">💖</span>
+                  <span>Yes, I'd Love To! Count Me In!</span>
+                  <span class="sparkle-trail">✨</span>
+                </button>
+
+                <!-- Playful runaway / teasing No button -->
+                <button type="button" class="btn btn-rsvp-no" id="playfulNoBtn">
+                  <span>No... (as if!) 😜</span>
+                </button>
+              </div>
+
+              <p class="form-disclaimer" id="rsvpNote">
+                * By clicking Yes, you agree to an evening of unmetered affection, laughter, and zero distractions.
+              </p>
+            </form>
+
+            <!-- TICKET STUB / CONFIRMATION RECEIPT (Shows once accepted) -->
+            <div class="confirmation-stub glass-panel" id="confirmationStub" style="display: none;">
+              <div class="stub-badge">
+                <i data-lucide="check-circle-2"></i>
+                <span>MOVIE DATE OFFICIALLY CONFIRMED! 🎉</span>
+              </div>
+              <h4 class="stub-headline">It's a Date! Can't wait, my love! ❤️</h4>
+              <div class="stub-details-table">
+                <div class="stub-row">
+                  <span>🎬 Film:</span>
+                  <strong>50 First Dates (VIP Screening)</strong>
+                </div>
+                <div class="stub-row">
+                  <span>📅 Date:</span>
+                  <strong id="confirmedDateText">October 9, 2026</strong>
+                </div>
+                <div class="stub-row">
+                  <span>⏰ Showtime:</span>
+                  <strong id="confirmedTimeText">08:00 PM</strong>
+                </div>
+                <div class="stub-row">
+                  <span>🍿 Concession:</span>
+                  <strong id="confirmedSnackText">Caramel popcorn & warm cuddles</strong>
+                </div>
+              </div>
+
+              <div class="stub-action-buttons">
+                <a class="btn btn-calendar" id="googleCalendarLink" href="#" target="_blank" rel="noopener noreferrer">
+                  <i data-lucide="calendar-plus"></i>
+                  <span>Add to Google Calendar</span>
+                </a>
+                <button class="btn btn-modify" onclick="modifyRsvp()">
+                  <i data-lucide="edit-3"></i>
+                  <span>Change Showtime</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div class="footer-content">
+        <div class="footer-heart">❤️</div>
+        <p class="footer-quote">
+          "Loving you is the easiest, happiest thing in the world."
+        </p>
+        <p class="footer-sub">
+          Crafted with all my heart for our Monthsary • October 9, 2026
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR PHOTOSTRIPS -->
+  <div class="lightbox-modal" id="photoLightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightboxDirectly()" aria-label="Close photo preview">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="lightbox-image-box">
+        <img id="lightboxImg" src="" alt="Photostrip enlarged view">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- FLOATING HEARTS CONTAINER -->
+  <div id="floatingHeartsContainer" class="floating-hearts-container"></div>
+
+  <!-- SWEET AUDIO SYNTHESIZER SCRIPT & PAGE LOGIC -->
+  <script src="script.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
